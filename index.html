@@ -8,10 +8,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-  <script src="js/vega_lite_vis.js" defer></script>
 </head>
 <body>
   <main>
@@ -77,7 +73,7 @@
       <div class="two-column">
         <div class="chart-block">
           <h3>Running participation by state and territory</h3>
-          <p class="chart-copy">This starter map uses simplified placeholder boundaries. Replace this GeoJSON with official ABS boundaries before final submission.</p>
+          <p class="chart-copy">Darker states and territories indicate higher adult running/jogging participation rates. Simplified boundaries are used for the national comparison.</p>
           <div id="running_state_map"></div>
         </div>
         <div class="chart-block">
@@ -138,9 +134,14 @@
     <footer>
       <h2>Sources and notes</h2>
       <p><strong>Data sources:</strong> AusPlay/Australian Sports Commission, parkrun Australia event data, Australian Bureau of Statistics population data, and Bureau of Meteorology climate data.</p>
-      <p><strong>Author:</strong> Replace with your name. <strong>Date:</strong> Replace with final submission date.</p>
+      <p><strong>Author:</strong> Thomas Stephens <strong>Date:</strong> 2026</p>
       <p><strong>AI acknowledgement:</strong> Generative AI was used to assist with planning, data cleaning, drafting text, and starter code generation. Final design decisions, validation, and submission remain the author’s responsibility.</p>
     </footer>
   </main>
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="js/vega_lite_vis.js"></script>
+
 </body>
 </html>
