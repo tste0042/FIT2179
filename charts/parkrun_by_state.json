@@ -1,12 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Number of Australian standard 5km parkrun events by state and territory.",
-  "width": 650,
+  "width": 680,
   "height": 280,
   "data": {
     "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/parkrun_by_state.csv"
   },
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#1f6f8b"
+  },
   "encoding": {
     "y": {
       "field": "state",
@@ -42,11 +46,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },

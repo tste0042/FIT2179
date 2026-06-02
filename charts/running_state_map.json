@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Choropleth map of running/jogging adult participation rate by state and territory.",
-  "width": 500,
-  "height": 390,
+  "width": 480,
+  "height": 360,
   "projection": {
     "type": "equirectangular",
     "center": [
@@ -74,11 +74,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },

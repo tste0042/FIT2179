@@ -11,7 +11,11 @@
       "filter": "datum.group_type == 'Gender'"
     }
   ],
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#1f6f8b"
+  },
   "encoding": {
     "x": {
       "field": "group",
@@ -49,11 +53,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },

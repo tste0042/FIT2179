@@ -1,8 +1,8 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Monthly average maximum temperature by capital city.",
-  "width": 650,
-  "height": 300,
+  "width": 760,
+  "height": 310,
   "data": {
     "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/city_temperature.csv"
   },
@@ -66,11 +66,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },

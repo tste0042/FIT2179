@@ -1,12 +1,16 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Number of comfortable running-temperature months by capital city.",
-  "width": 650,
+  "width": 680,
   "height": 280,
   "data": {
     "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/city_running_conditions_summary.csv"
   },
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#1f6f8b"
+  },
   "encoding": {
     "y": {
       "field": "city",
@@ -48,11 +52,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },

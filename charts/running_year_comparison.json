@@ -6,7 +6,11 @@
   "data": {
     "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/running_year_comparison.csv"
   },
-  "mark": "bar",
+  "mark": {
+    "type": "bar",
+    "cornerRadiusEnd": 4,
+    "color": "#1f6f8b"
+  },
   "encoding": {
     "x": {
       "field": "year",
@@ -43,11 +47,17 @@
   },
   "config": {
     "axis": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12,
-      "gridColor": "#e8edf2"
+      "gridColor": "#e8edf2",
+      "domainColor": "#b8c3cf",
+      "tickColor": "#b8c3cf"
     },
     "legend": {
+      "labelFont": "Inter, Arial, sans-serif",
+      "titleFont": "Inter, Arial, sans-serif",
       "labelFontSize": 11,
       "titleFontSize": 12
     },
