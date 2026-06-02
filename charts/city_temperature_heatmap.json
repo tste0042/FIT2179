@@ -1,0 +1,81 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Monthly average maximum temperature by capital city.",
+  "width": 650,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/city_temperature.csv"
+  },
+  "mark": "rect",
+  "encoding": {
+    "x": {
+      "field": "month",
+      "type": "ordinal",
+      "sort": [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December"
+      ],
+      "title": "Month"
+    },
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "title": "City"
+    },
+    "color": {
+      "field": "avg_max_temp_c",
+      "type": "quantitative",
+      "title": "Avg max temp (\u00b0C)",
+      "scale": {
+        "scheme": "yelloworangered"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "city",
+        "type": "nominal",
+        "title": "City"
+      },
+      {
+        "field": "month",
+        "type": "ordinal",
+        "title": "Month"
+      },
+      {
+        "field": "avg_max_temp_c",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "Avg max temp (\u00b0C)"
+      },
+      {
+        "field": "running_temp_category",
+        "type": "nominal",
+        "title": "Running category"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

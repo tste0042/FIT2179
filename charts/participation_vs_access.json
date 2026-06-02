@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Relationship between running participation rate and parkrun access by state and territory.",
+  "width": 500,
+  "height": 320,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/participation_vs_access.csv"
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "circle",
+        "size": 120,
+        "opacity": 0.75
+      },
+      "encoding": {
+        "x": {
+          "field": "events_per_100k",
+          "type": "quantitative",
+          "title": "Parkrun events per 100,000 people"
+        },
+        "y": {
+          "field": "running_participation_rate",
+          "type": "quantitative",
+          "title": "Running participation rate (%)"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/Territory"
+          },
+          {
+            "field": "running_participation_rate",
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Running rate (%)"
+          },
+          {
+            "field": "events_per_100k",
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Events per 100,000"
+          },
+          {
+            "field": "parkrun_events",
+            "type": "quantitative",
+            "title": "Parkrun events"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "dy": -12,
+        "fontSize": 10
+      },
+      "encoding": {
+        "x": {
+          "field": "events_per_100k",
+          "type": "quantitative"
+        },
+        "y": {
+          "field": "running_participation_rate",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "state_abbrev",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

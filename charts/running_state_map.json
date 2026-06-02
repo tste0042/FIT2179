@@ -1,0 +1,89 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Choropleth map of running/jogging adult participation rate by state and territory.",
+  "width": 500,
+  "height": 390,
+  "projection": {
+    "type": "equirectangular",
+    "center": [
+      134,
+      -26
+    ],
+    "scale": 560
+  },
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/aus_states_simplified.geojson",
+    "format": {
+      "type": "json",
+      "property": "features"
+    }
+  },
+  "transform": [
+    {
+      "calculate": "datum.properties.state_abbrev",
+      "as": "map_state_abbrev"
+    },
+    {
+      "lookup": "map_state_abbrev",
+      "from": {
+        "data": {
+          "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/running_by_state.csv"
+        },
+        "key": "state_abbrev",
+        "fields": [
+          "state",
+          "participants",
+          "participation_rate"
+        ]
+      }
+    }
+  ],
+  "mark": {
+    "type": "geoshape",
+    "stroke": "white",
+    "strokeWidth": 1
+  },
+  "encoding": {
+    "color": {
+      "field": "participation_rate",
+      "type": "quantitative",
+      "title": "Participation rate (%)",
+      "scale": {
+        "scheme": "greens"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State/Territory"
+      },
+      {
+        "field": "participants",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Participants"
+      },
+      {
+        "field": "participation_rate",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Participation rate (%)"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

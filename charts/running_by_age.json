@@ -1,0 +1,69 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Running and jogging participation by adult age group.",
+  "width": 500,
+  "height": 300,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/running_by_demographic.csv"
+  },
+  "transform": [
+    {
+      "filter": "datum.group_type == 'Age'"
+    }
+  ],
+  "mark": "bar",
+  "encoding": {
+    "x": {
+      "field": "group",
+      "type": "ordinal",
+      "title": "Age group",
+      "sort": [
+        "15-17",
+        "18-24",
+        "25-34",
+        "35-44",
+        "45-54",
+        "55-64",
+        "65+"
+      ]
+    },
+    "y": {
+      "field": "participation_rate",
+      "type": "quantitative",
+      "title": "Participation rate (%)"
+    },
+    "tooltip": [
+      {
+        "field": "group",
+        "type": "ordinal",
+        "title": "Age group"
+      },
+      {
+        "field": "participants",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Participants"
+      },
+      {
+        "field": "participation_rate",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Participation rate (%)"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

@@ -1,0 +1,67 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Top adult physical activities in Australia by estimated participants.",
+  "width": 650,
+  "height": 320,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/activity_ranking.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "activity",
+      "type": "nominal",
+      "sort": {
+        "field": "participants",
+        "order": "descending"
+      },
+      "title": null
+    },
+    "x": {
+      "field": "participants",
+      "type": "quantitative",
+      "title": "Estimated adult participants",
+      "axis": {
+        "format": "~s"
+      }
+    },
+    "tooltip": [
+      {
+        "field": "activity",
+        "type": "nominal",
+        "title": "Activity"
+      },
+      {
+        "field": "participants",
+        "type": "quantitative",
+        "format": ",",
+        "title": "Participants"
+      },
+      {
+        "field": "participation_rate",
+        "type": "quantitative",
+        "format": ".2f",
+        "title": "Participation rate (%)"
+      },
+      {
+        "field": "rank",
+        "type": "quantitative",
+        "title": "Rank"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}

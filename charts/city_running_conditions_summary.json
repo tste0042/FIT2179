@@ -1,0 +1,63 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "Number of comfortable running-temperature months by capital city.",
+  "width": 650,
+  "height": 280,
+  "data": {
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/city_running_conditions_summary.csv"
+  },
+  "mark": "bar",
+  "encoding": {
+    "y": {
+      "field": "city",
+      "type": "nominal",
+      "sort": {
+        "field": "comfortable_months",
+        "order": "descending"
+      },
+      "title": null
+    },
+    "x": {
+      "field": "comfortable_months",
+      "type": "quantitative",
+      "title": "Comfortable months"
+    },
+    "tooltip": [
+      {
+        "field": "city",
+        "type": "nominal",
+        "title": "City"
+      },
+      {
+        "field": "comfortable_months",
+        "type": "quantitative",
+        "title": "Comfortable months"
+      },
+      {
+        "field": "hot_months",
+        "type": "quantitative",
+        "title": "Hot months"
+      },
+      {
+        "field": "avg_annual_max_temp_c",
+        "type": "quantitative",
+        "format": ".1f",
+        "title": "Avg annual max temp (\u00b0C)"
+      }
+    ]
+  },
+  "config": {
+    "axis": {
+      "labelFontSize": 11,
+      "titleFontSize": 12,
+      "gridColor": "#e8edf2"
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 12
+    },
+    "view": {
+      "stroke": null
+    }
+  }
+}
