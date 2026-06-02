@@ -4,7 +4,7 @@
   "width": 680,
   "height": 320,
   "data": {
-    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/activity_ranking.csv"
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/activity_rankings.csv"
   },
   "mark": {
     "type": "bar",
