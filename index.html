@@ -1,18 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
-<script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
-<script src="vega_lite_vis.js"></script>
-<title>First Vega-Lite graph </title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Where Australia Runs</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vega-embed@6.17.0"></script>
+  <script src="js/vega_lite_vis.js" defer></script>
 </head>
 <body>
-<h1>First Vega-Lite graph</h1>
-<div id="activity_ranking">
-</div>
+  <main>
+    <header class="hero">
+      <p class="eyebrow">FIT2179 Data Visualisation 2</p>
+      <h1>Where Australia Runs</h1>
+      <p class="subtitle">Participation, access, and outdoor running conditions across Australia.</p>
+      <p class="intro">Running is one of Australia’s most accessible physical activities, but participation, organised running access, and outdoor conditions vary across the country.</p>
+    </header>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <span class="section-number">01</span>
+        <div>
+          <h2>How popular is running?</h2>
+          <p>AusPlay estimates that 3.74 million Australian adults participated in running or jogging in 2025. The first section places running against other common activities, then shows how participation differs by age and gender.</p>
+        </div>
+      </div>
+      <div class="stat-grid">
+        <article class="stat-card">
+          <p class="stat-label">Estimated adult running/jogging participants</p>
+          <p class="stat-number">3.74M</p>
+          <p class="stat-note">AusPlay 2025 calendar-year estimate.</p>
+        </article>
+        <article class="stat-card">
+          <p class="stat-label">Adult participation rate</p>
+          <p class="stat-number">16.53%</p>
+          <p class="stat-note">Around one in six Australian adults.</p>
+        </article>
+      </div>
+      <div class="chart-block wide">
+        <h3>Running is a top-five adult activity</h3>
+        <p class="chart-copy">Walking and fitness/gym dominate, but running/jogging still ranks above many organised sports.</p>
+        <div id="activity_ranking"></div>
+      </div>
+      <div class="two-column">
+        <div class="chart-block">
+          <h3>Running participation peaks in young adults</h3>
+          <p class="chart-copy">Participation is highest in the 25–34 age group, then declines sharply in older age groups.</p>
+          <div id="running_by_age"></div>
+        </div>
+        <div class="chart-block">
+          <h3>Men report a higher running rate</h3>
+          <p class="chart-copy">The gender difference is visible, but both groups represent large running populations.</p>
+          <div id="running_by_gender"></div>
+        </div>
+      </div>
+      <div class="chart-block wide small-chart">
+        <h3>Running participation increased from 2024 to 2025</h3>
+        <p class="chart-copy">This small comparison gives the story a current, year-on-year context.</p>
+        <div id="running_year_comparison"></div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <span class="section-number">02</span>
+        <div>
+          <h2>Where do Australians run?</h2>
+          <p>Participation varies by state and territory, and parkrun locations show where organised weekly 5km running opportunities are physically located.</p>
+        </div>
+      </div>
+      <div class="two-column">
+        <div class="chart-block">
+          <h3>Running participation by state and territory</h3>
+          <p class="chart-copy">This starter map uses simplified placeholder boundaries. Replace this GeoJSON with official ABS boundaries before final submission.</p>
+          <div id="running_state_map"></div>
+        </div>
+        <div class="chart-block">
+          <h3>Parkrun locations are clustered around population centres</h3>
+          <p class="chart-copy">Each point represents one standard Australian 5km parkrun event.</p>
+          <div id="parkrun_location_map"></div>
+        </div>
+      </div>
+      <div class="chart-block wide">
+        <h3>Queensland has the most parkrun events</h3>
+        <p class="chart-copy">Raw event counts favour larger states, so the next section adjusts by population.</p>
+        <div id="parkrun_by_state"></div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <span class="section-number">03</span>
+        <div>
+          <h2>Is organised running equally accessible?</h2>
+          <p>Counting events alone can be misleading. Normalising by population gives a clearer comparison of organised running access.</p>
+        </div>
+      </div>
+      <div class="two-column">
+        <div class="chart-block">
+          <h3>Tasmania has the highest event access per person</h3>
+          <p class="chart-copy">Smaller populations can produce higher access ratios even with fewer total events.</p>
+          <div id="parkrun_access"></div>
+        </div>
+        <div class="chart-block">
+          <h3>Participation and access do not perfectly align</h3>
+          <p class="chart-copy">The scatterplot compares AusPlay running participation with parkrun events per 100,000 people.</p>
+          <div id="participation_vs_access"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-card">
+      <div class="section-heading">
+        <span class="section-number">04</span>
+        <div>
+          <h2>Where and when are conditions best for running?</h2>
+          <p>Outdoor running is shaped by seasonal temperature. This section compares average monthly maximum temperatures across capital cities.</p>
+        </div>
+      </div>
+      <div class="chart-block wide">
+        <h3>Summer heat changes the running experience</h3>
+        <p class="chart-copy">Darwin and Brisbane stay warmer across the year, while Hobart, Melbourne and Canberra have more cool or comfortable months.</p>
+        <div id="city_temperature_heatmap"></div>
+      </div>
+      <div class="chart-block wide small-chart">
+        <h3>Comfortable running months by capital city</h3>
+        <p class="chart-copy">A derived summary translates monthly temperature into a simpler running-comfort comparison.</p>
+        <div id="city_running_conditions_summary"></div>
+      </div>
+    </section>
+
+    <footer>
+      <h2>Sources and notes</h2>
+      <p><strong>Data sources:</strong> AusPlay/Australian Sports Commission, parkrun Australia event data, Australian Bureau of Statistics population data, and Bureau of Meteorology climate data.</p>
+      <p><strong>Author:</strong> Replace with your name. <strong>Date:</strong> Replace with final submission date.</p>
+      <p><strong>AI acknowledgement:</strong> Generative AI was used to assist with planning, data cleaning, drafting text, and starter code generation. Final design decisions, validation, and submission remain the author’s responsibility.</p>
+    </footer>
+  </main>
 </body>
 </html>
