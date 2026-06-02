@@ -1,0 +1,277 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Western Australia",
+        "state_abbrev": "WA"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              112.9,
+              -35.2
+            ],
+            [
+              129,
+              -35.2
+            ],
+            [
+              129,
+              -13.5
+            ],
+            [
+              112.9,
+              -13.5
+            ],
+            [
+              112.9,
+              -35.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Northern Territory",
+        "state_abbrev": "NT"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              129,
+              -26
+            ],
+            [
+              138,
+              -26
+            ],
+            [
+              138,
+              -10.5
+            ],
+            [
+              129,
+              -10.5
+            ],
+            [
+              129,
+              -26
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "South Australia",
+        "state_abbrev": "SA"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              129,
+              -38.2
+            ],
+            [
+              141,
+              -38.2
+            ],
+            [
+              141,
+              -26
+            ],
+            [
+              129,
+              -26
+            ],
+            [
+              129,
+              -38.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Queensland",
+        "state_abbrev": "QLD"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              138,
+              -29.2
+            ],
+            [
+              153.7,
+              -29.2
+            ],
+            [
+              153.7,
+              -10.5
+            ],
+            [
+              138,
+              -10.5
+            ],
+            [
+              138,
+              -29.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "New South Wales",
+        "state_abbrev": "NSW"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              141,
+              -37.6
+            ],
+            [
+              153.7,
+              -37.6
+            ],
+            [
+              153.7,
+              -28.0
+            ],
+            [
+              141,
+              -28.0
+            ],
+            [
+              141,
+              -37.6
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Victoria",
+        "state_abbrev": "VIC"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              141,
+              -39.2
+            ],
+            [
+              150.2,
+              -39.2
+            ],
+            [
+              150.2,
+              -34.0
+            ],
+            [
+              141,
+              -34.0
+            ],
+            [
+              141,
+              -39.2
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Tasmania",
+        "state_abbrev": "TAS"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              144.3,
+              -43.8
+            ],
+            [
+              148.6,
+              -43.8
+            ],
+            [
+              148.6,
+              -40.2
+            ],
+            [
+              144.3,
+              -40.2
+            ],
+            [
+              144.3,
+              -43.8
+            ]
+          ]
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "state": "Australian Capital Territory",
+        "state_abbrev": "ACT"
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [
+          [
+            [
+              148.75,
+              -35.95
+            ],
+            [
+              149.45,
+              -35.95
+            ],
+            [
+              149.45,
+              -35.1
+            ],
+            [
+              148.75,
+              -35.1
+            ],
+            [
+              148.75,
+              -35.95
+            ]
+          ]
+        ]
+      }
+    }
+  ]
+}

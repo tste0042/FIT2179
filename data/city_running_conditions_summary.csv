@@ -1,0 +1,9 @@
+city,state_abbrev,comfortable_months,hot_months,avg_annual_max_temp_c,comfort_rank,source_url
+Hobart,TAS,7,0,17.3,1,https://www.bom.gov.au/climate/australia/cities/
+Adelaide,SA,6,2,22.3,2,https://www.bom.gov.au/climate/australia/cities/
+Sydney,NSW,5,0,22.5,3,https://www.bom.gov.au/climate/australia/cities/
+Melbourne,VIC,4,0,19.8,4,https://www.bom.gov.au/climate/australia/cities/
+Canberra,ACT,4,1,20.2,5,https://www.bom.gov.au/climate/australia/cities/
+Perth,WA,4,4,24.8,6,https://www.bom.gov.au/climate/australia/cities/
+Brisbane,QLD,3,3,25.3,7,https://www.bom.gov.au/climate/australia/cities/
+Darwin,NT,0,12,32.2,8,https://www.bom.gov.au/climate/australia/cities/
