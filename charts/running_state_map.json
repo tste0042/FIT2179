@@ -1,18 +1,31 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Choropleth map of running/jogging adult participation rate by state and territory.",
-  "width": 480,
-  "height": 360,
+  "description": "Choropleth map of adult running/jogging participation rate by Australian state and territory.",
+  "width": 390,
+  "height": 310,
   "projection": {
-    "type": "equirectangular",
+    "type": "mercator",
     "center": [
       134,
-      -26
+      -27
     ],
-    "scale": 560
+    "scale": 425
   },
+  "params": [
+    {
+      "name": "hover_state",
+      "select": {
+        "type": "point",
+        "on": "mouseover",
+        "clear": "mouseout",
+        "fields": [
+          "properties.STATE_NAME"
+        ]
+      }
+    }
+  ],
   "data": {
-    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/aus_states_simplified.geojson",
+    "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
     "format": {
       "type": "json",
       "property": "features"
@@ -20,18 +33,63 @@
   },
   "transform": [
     {
-      "calculate": "datum.properties.state_abbrev",
-      "as": "map_state_abbrev"
-    },
-    {
-      "lookup": "map_state_abbrev",
+      "lookup": "properties.STATE_NAME",
       "from": {
         "data": {
-          "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/running_by_state.csv"
+          "values": [
+            {
+              "state": "New South Wales",
+              "state_abbrev": "NSW",
+              "participants": 1101086,
+              "participation_rate": 15.6
+            },
+            {
+              "state": "Victoria",
+              "state_abbrev": "VIC",
+              "participants": 1008069,
+              "participation_rate": 17.35
+            },
+            {
+              "state": "Queensland",
+              "state_abbrev": "QLD",
+              "participants": 741275,
+              "participation_rate": 16.02
+            },
+            {
+              "state": "South Australia",
+              "state_abbrev": "SA",
+              "participants": 245678,
+              "participation_rate": 15.54
+            },
+            {
+              "state": "Western Australia",
+              "state_abbrev": "WA",
+              "participants": 426793,
+              "participation_rate": 17.29
+            },
+            {
+              "state": "Tasmania",
+              "state_abbrev": "TAS",
+              "participants": 81608,
+              "participation_rate": 16.88
+            },
+            {
+              "state": "Northern Territory",
+              "state_abbrev": "NT",
+              "participants": 43827,
+              "participation_rate": 21.03
+            },
+            {
+              "state": "Australian Capital Territory",
+              "state_abbrev": "ACT",
+              "participants": 92147,
+              "participation_rate": 23.15
+            }
+          ]
         },
-        "key": "state_abbrev",
+        "key": "state",
         "fields": [
-          "state",
+          "state_abbrev",
           "participants",
           "participation_rate"
         ]
@@ -40,23 +98,49 @@
   ],
   "mark": {
     "type": "geoshape",
-    "stroke": "white",
-    "strokeWidth": 1
+    "stroke": "#ffffff",
+    "strokeWidth": 1.1
   },
   "encoding": {
     "color": {
       "field": "participation_rate",
       "type": "quantitative",
-      "title": "Participation rate (%)",
+      "title": "Running rate (%)",
       "scale": {
-        "scheme": "greens"
+        "domain": [
+          15,
+          18,
+          24
+        ],
+        "range": [
+          "#d8f0e8",
+          "#1f9d7a",
+          "#0a4f3b"
+        ]
+      },
+      "legend": {
+        "orient": "bottom",
+        "direction": "horizontal",
+        "gradientLength": 170
       }
+    },
+    "opacity": {
+      "condition": {
+        "param": "hover_state",
+        "value": 1
+      },
+      "value": 0.88
     },
     "tooltip": [
       {
-        "field": "state",
+        "field": "properties.STATE_NAME",
         "type": "nominal",
         "title": "State/Territory"
+      },
+      {
+        "field": "state_abbrev",
+        "type": "nominal",
+        "title": "Abbrev."
       },
       {
         "field": "participants",
@@ -73,23 +157,43 @@
     ]
   },
   "config": {
-    "axis": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "gridColor": "#e8edf2",
-      "domainColor": "#b8c3cf",
-      "tickColor": "#b8c3cf"
-    },
-    "legend": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+  "background": "transparent",
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "gridColor": "#e8edf2",
+    "domainColor": "#c8d3dd",
+    "tickColor": "#c8d3dd"
+  },
+  "legend": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "orient": "bottom"
+  },
+  "title": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 14,
+    "fontWeight": 800,
+    "anchor": "start",
+    "color": "#132033"
+  },
+  "bar": {
+    "cornerRadiusEnd": 5
+  },
+  "point": {
+    "filled": true
   }
+}
 }
