@@ -1,16 +1,29 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Parkrun events per 100,000 people by state and territory.",
-  "width": 480,
-  "height": 300,
+  "description": "Parkrun event access by state and territory, normalised by population.",
+  "width": 300,
+  "height": 340,
   "data": {
-    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/parkrun_access.csv"
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/main/data/parkrun_access.csv"
   },
-  "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 4,
-    "color": "#1f6f8b"
-  },
+  "params": [
+    {
+      "name": "Minimum_access",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 4,
+        "step": 0.25,
+        "name": "Minimum events per 100k people: "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.events_per_100k >= Minimum_access"
+    }
+  ],
   "encoding": {
     "y": {
       "field": "state",
@@ -19,56 +32,135 @@
         "field": "events_per_100k",
         "order": "descending"
       },
-      "title": null
+      "title": null,
+      "axis": {
+        "labelLimit": 170
+      }
     },
     "x": {
       "field": "events_per_100k",
       "type": "quantitative",
-      "title": "Events per 100,000 people"
-    },
-    "tooltip": [
-      {
-        "field": "state",
-        "type": "nominal",
-        "title": "State/Territory"
+      "title": "Parkrun events per 100,000 people",
+      "scale": {
+        "domain": [
+          0,
+          4.5
+        ]
       },
-      {
-        "field": "parkrun_events",
-        "type": "quantitative",
-        "title": "Events"
-      },
-      {
-        "field": "population",
-        "type": "quantitative",
-        "format": ",",
-        "title": "Population"
-      },
-      {
-        "field": "events_per_100k",
-        "type": "quantitative",
-        "format": ".2f",
-        "title": "Events per 100,000"
+      "axis": {
+        "grid": true
       }
-    ]
-  },
-  "config": {
-    "axis": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "gridColor": "#e8edf2",
-      "domainColor": "#b8c3cf",
-      "tickColor": "#b8c3cf"
-    },
-    "legend": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
     }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 4
+      },
+      "encoding": {
+        "color": {
+          "field": "events_per_100k",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              1.4,
+              4.2
+            ],
+            "range": [
+              "#86a8c7",
+              "#0b6b3a"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State/Territory"
+          },
+          {
+            "field": "parkrun_events",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Parkrun events"
+          },
+          {
+            "field": "population",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Population"
+          },
+          {
+            "field": "events_per_100k",
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Events per 100k people"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "events_per_100k",
+          "type": "quantitative",
+          "format": ".2f"
+        },
+        "color": {
+          "value": "#102a43"
+        }
+      }
+    }
+    
+  ],
+  "config": {
+  "background": "transparent",
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "gridColor": "#e8edf2",
+    "domainColor": "#c8d3dd",
+    "tickColor": "#c8d3dd"
+  },
+  "legend": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "orient": "bottom"
+  },
+  "title": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 14,
+    "fontWeight": 800,
+    "anchor": "start",
+    "color": "#132033"
+  },
+  "bar": {
+    "cornerRadiusEnd": 5
+  },
+  "point": {
+    "filled": true
   }
+}
 }
