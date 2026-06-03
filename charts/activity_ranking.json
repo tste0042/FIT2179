@@ -1,77 +1,166 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Top adult physical activities in Australia by estimated participants.",
-  "width": 680,
-  "height": 320,
+  "width": 560,
+  "height": 330,
   "data": {
-    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/activity_ranking.csv"
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/main/data/activity_ranking.csv"
   },
-  "mark": {
-    "type": "bar",
-    "cornerRadiusEnd": 4,
-    "color": "#1f6f8b"
-  },
-  "encoding": {
-    "y": {
-      "field": "activity",
-      "type": "nominal",
-      "sort": {
-        "field": "participants",
-        "order": "descending"
-      },
-      "title": null
+  "params": [
+    {
+      "name": "Minimum_rate",
+      "value": 0,
+      "bind": {
+        "input": "range",
+        "min": 0,
+        "max": 50,
+        "step": 5,
+        "name": "Minimum participation rate (%): "
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.participation_rate >= Minimum_rate"
     },
+    {
+      "calculate": "datum.activity == 'Running/jogging' ? 'Running/jogging' : 'Other activities'",
+      "as": "activity_group"
+    }
+  ],
+  "encoding": {
+"y": {
+  "field": "activity",
+  "type": "nominal",
+  "sort": [
+    "Walking (Recreational)",
+    "Fitness/Gym",
+    "Bush walking",
+    "Running/jogging",
+    "Swimming",
+    "Cycling",
+    "Pilates",
+    "Football/soccer",
+    "Yoga",
+    "Tennis"
+  ],
+  "title": null,
+  "axis": {
+    "labelLimit": 180
+  }
+},
     "x": {
       "field": "participants",
       "type": "quantitative",
       "title": "Estimated adult participants",
       "axis": {
-        "format": "~s"
+        "format": "~s",
+        "grid": true
       }
-    },
-    "tooltip": [
-      {
-        "field": "activity",
-        "type": "nominal",
-        "title": "Activity"
-      },
-      {
-        "field": "participants",
-        "type": "quantitative",
-        "format": ",",
-        "title": "Participants"
-      },
-      {
-        "field": "participation_rate",
-        "type": "quantitative",
-        "format": ".2f",
-        "title": "Participation rate (%)"
-      },
-      {
-        "field": "rank",
-        "type": "quantitative",
-        "title": "Rank"
-      }
-    ]
-  },
-  "config": {
-    "axis": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "gridColor": "#e8edf2",
-      "domainColor": "#b8c3cf",
-      "tickColor": "#b8c3cf"
-    },
-    "legend": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
     }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "cornerRadiusEnd": 4
+      },
+      "encoding": {
+        "color": {
+          "field": "activity_group",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "Running/jogging",
+              "Other activities"
+            ],
+            "range": [
+              "#0b6b3a",
+              "#4f7cac"
+            ]
+          },
+          "legend": null
+        },
+        "tooltip": [
+          {
+            "field": "activity",
+            "type": "nominal",
+            "title": "Activity"
+          },
+          {
+            "field": "participants",
+            "type": "quantitative",
+            "format": ",",
+            "title": "Participants"
+          },
+          {
+            "field": "participation_rate",
+            "type": "quantitative",
+            "format": ".2f",
+            "title": "Participation rate (%)"
+          }
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "baseline": "middle",
+        "dx": 5,
+        "fontSize": 11,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "participants",
+          "type": "quantitative",
+          "format": ".2s"
+        },
+        "color": {
+          "value": "#1f2d3d"
+        }
+      }
+    }
+  ],
+  "config": {
+  "background": "transparent",
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "gridColor": "#e8edf2",
+    "domainColor": "#c8d3dd",
+    "tickColor": "#c8d3dd"
+  },
+  "legend": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "orient": "bottom"
+  },
+  "title": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 14,
+    "fontWeight": 800,
+    "anchor": "start",
+    "color": "#132033"
+  },
+  "bar": {
+    "cornerRadiusEnd": 5
+  },
+  "point": {
+    "filled": true
   }
+}
 }
