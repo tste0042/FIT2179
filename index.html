@@ -15,7 +15,7 @@
       <p class="eyebrow">FIT2179 Data Visualisation 2</p>
       <h1>Where Australia Runs</h1>
       <p class="subtitle">Participation, access, and outdoor running conditions across Australia.</p>
-      <p class="intro">Running is one of Australia’s most accessible physical activities, but participation, organised running access, and outdoor conditions vary across the country.</p>
+      <p class="intro">Running is one of Australia's most accessible physical activities, but participation, organised running access, and outdoor conditions vary across the country.</p>
     </header>
 
     <section class="section-card">
@@ -46,7 +46,7 @@
       <div class="two-column">
         <div class="chart-block">
           <h3>Running participation peaks in young adults</h3>
-          <p class="chart-copy">Participation is highest in the 25–34 age group, then declines sharply in older age groups.</p>
+          <p class="chart-copy">Participation is highest in the 25-34 age group, then declines sharply in older age groups.</p>
           <div id="running_by_age"></div>
         </div>
         <div class="chart-block">
@@ -73,7 +73,7 @@
       <div class="two-column">
         <div class="chart-block">
           <h3>Running participation by state and territory</h3>
-          <p class="chart-copy">Darker states and territories indicate higher adult running/jogging participation rates. Simplified boundaries are used for the national comparison.</p>
+          <p class="chart-copy">Darker states and territories show higher adult running/jogging participation rates.</p>
           <div id="running_state_map"></div>
         </div>
         <div class="chart-block">
@@ -131,12 +131,44 @@
       </div>
     </section>
 
-    <footer>
-      <h2>Sources and notes</h2>
-      <p><strong>Data sources:</strong> AusPlay/Australian Sports Commission, parkrun Australia event data, Australian Bureau of Statistics population data, and Bureau of Meteorology climate data.</p>
-      <p><strong>Author:</strong> Thomas Stephens <strong>Date:</strong> 2026</p>
-      <p><strong>AI acknowledgement:</strong> Generative AI was used to assist with planning, data cleaning, drafting text, and starter code generation. Final design decisions, validation, and submission remain the author’s responsibility.</p>
-    </footer>
+<footer>
+  <h2>Final takeaway</h2>
+  <p>
+    Running is a major Australian physical activity, but the data shows that participation, organised access, and outdoor conditions are unevenly distributed. Younger adults participate at higher rates, parkrun access is not always strongest in the largest states, and climate changes the running experience across cities and seasons.
+  </p>
+
+  <h2>Sources and notes</h2>
+
+  <p>
+    <strong>Data sources:</strong>
+    AusPlay participation data from the
+    <a href="https://www.ausport.gov.au/clearinghouse/research/ausplay/results" target="_blank" rel="noopener noreferrer">Australian Sports Commission AusPlay results</a>;
+    parkrun event location data from
+    <a href="https://www.parkrun.com.au/events/events/" target="_blank" rel="noopener noreferrer">parkrun Australia events</a>;
+    population data from the
+    <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/latest-release" target="_blank" rel="noopener noreferrer">Australian Bureau of Statistics National, state and territory population release</a>;
+    climate data from the
+    <a href="https://www.bom.gov.au/climate/australia/cities/" target="_blank" rel="noopener noreferrer">Bureau of Meteorology Climate of Australia major cities data</a>;
+    and Australian state boundary geometry from
+    <a href="https://github.com/rowanhogan/australian-states" target="_blank" rel="noopener noreferrer">rowanhogan/australian-states GeoJSON</a>.
+  </p>
+
+  <p>
+    <strong>Data processing:</strong>
+    Cleaned CSV files were created from the source datasets for use in Vega-Lite. Derived fields include parkrun events per 100,000 people, state-level access rankings, participation-versus-access comparisons, and simplified running-temperature categories based on monthly average maximum temperatures.
+  </p>
+
+  <p>
+    <strong>Author:</strong> Thomas Stephens.
+    <strong>Date:</strong> 2026.
+    <strong>Unit:</strong> FIT2179 Data Visualisation 2.
+  </p>
+
+  <p>
+    <strong>AI acknowledgement:</strong>
+    Generative AI tools were used to assist with brainstorming, data-cleaning guidance, wording refinement, code debugging, and starter HTML/CSS/Vega-Lite generation. Final topic selection, data checking, design choices, chart validation, and submission decisions were made by the author.
+  </p>
+</footer>
   </main>
   <script src="https://cdn.jsdelivr.net/npm/vega@5.20.2"></script>
   <script src="https://cdn.jsdelivr.net/npm/vega-lite@5.1.0"></script>
