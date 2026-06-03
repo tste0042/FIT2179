@@ -4,7 +4,7 @@
   "width": 680,
   "height": 280,
   "data": {
-    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/parkrun_by_state.csv"
+    "url": "https://raw.githubusercontent.com/tste0042/FIT2179/main/data/parkrun_by_state.csv"
   },
   "mark": {
     "type": "bar",
@@ -45,23 +45,43 @@
     ]
   },
   "config": {
-    "axis": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "gridColor": "#e8edf2",
-      "domainColor": "#b8c3cf",
-      "tickColor": "#b8c3cf"
-    },
-    "legend": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+  "background": "transparent",
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "gridColor": "#e8edf2",
+    "domainColor": "#c8d3dd",
+    "tickColor": "#c8d3dd"
+  },
+  "legend": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "orient": "bottom"
+  },
+  "title": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 14,
+    "fontWeight": 800,
+    "anchor": "start",
+    "color": "#132033"
+  },
+  "bar": {
+    "cornerRadiusEnd": 5
+  },
+  "point": {
+    "filled": true
   }
+}
 }
