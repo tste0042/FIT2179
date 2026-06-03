@@ -1,20 +1,51 @@
 {
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
-  "description": "Australian standard 5km parkrun locations.",
-  "width": 480,
-  "height": 360,
+  "description": "Australian standard 5km parkrun locations with a state boundary base map and a state filter.",
+  "width": 390,
+  "height": 310,
   "projection": {
-    "type": "equirectangular",
+    "type": "mercator",
     "center": [
       134,
-      -26
+      -27
     ],
-    "scale": 560
+    "scale": 425
   },
+  "params": [
+    {
+      "name": "State_filter",
+      "bind": {
+        "input": "select",
+        "options": [
+          null,
+          "ACT",
+          "NSW",
+          "NT",
+          "QLD",
+          "SA",
+          "TAS",
+          "VIC",
+          "WA"
+        ],
+        "labels": [
+          "All states",
+          "ACT",
+          "NSW",
+          "NT",
+          "QLD",
+          "SA",
+          "TAS",
+          "VIC",
+          "WA"
+        ],
+        "name": "Filter state: "
+      }
+    }
+  ],
   "layer": [
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/aus_states_simplified.geojson",
+        "url": "https://raw.githubusercontent.com/rowanhogan/australian-states/master/states.min.geojson",
         "format": {
           "type": "json",
           "property": "features"
@@ -22,19 +53,33 @@
       },
       "mark": {
         "type": "geoshape",
-        "fill": "#eeeeee",
-        "stroke": "white",
-        "strokeWidth": 1
+        "fill": "#e9f1f4",
+        "stroke": "#ffffff",
+        "strokeWidth": 1.1
+      },
+      "encoding": {
+        "tooltip": {
+          "field": "properties.STATE_NAME",
+          "type": "nominal",
+          "title": "State/Territory"
+        }
       }
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/tste0042/FIT2179/refs/heads/main/data/parkrun_locations.csv"
+        "url": "https://raw.githubusercontent.com/tste0042/FIT2179/main/data/parkrun_locations.csv"
       },
+      "transform": [
+        {
+          "filter": "State_filter == null || datum.state_abbrev == State_filter"
+        }
+      ],
       "mark": {
         "type": "circle",
-        "opacity": 0.55,
-        "size": 18
+        "opacity": 0.72,
+        "size": 28,
+        "stroke": "white",
+        "strokeWidth": 0.45
       },
       "encoding": {
         "longitude": {
@@ -44,6 +89,37 @@
         "latitude": {
           "field": "latitude",
           "type": "quantitative"
+        },
+        "color": {
+          "field": "state_abbrev",
+          "type": "nominal",
+          "title": "State",
+          "scale": {
+            "domain": [
+              "ACT",
+              "NSW",
+              "NT",
+              "QLD",
+              "SA",
+              "TAS",
+              "VIC",
+              "WA"
+            ],
+            "range": [
+              "#d95f45",
+              "#1f6f8b",
+              "#7ba9c7",
+              "#1f9d7a",
+              "#e7a94b",
+              "#8769b1",
+              "#0f8a7a",
+              "#4d86bd"
+            ]
+          },
+          "legend": {
+            "orient": "bottom",
+            "columns": 4
+          }
         },
         "tooltip": [
           {
@@ -66,23 +142,43 @@
     }
   ],
   "config": {
-    "axis": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12,
-      "gridColor": "#e8edf2",
-      "domainColor": "#b8c3cf",
-      "tickColor": "#b8c3cf"
-    },
-    "legend": {
-      "labelFont": "Inter, Arial, sans-serif",
-      "titleFont": "Inter, Arial, sans-serif",
-      "labelFontSize": 11,
-      "titleFontSize": 12
-    },
-    "view": {
-      "stroke": null
-    }
+  "background": "transparent",
+  "font": "Inter, Arial, sans-serif",
+  "view": {
+    "stroke": null
+  },
+  "axis": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "gridColor": "#e8edf2",
+    "domainColor": "#c8d3dd",
+    "tickColor": "#c8d3dd"
+  },
+  "legend": {
+    "labelFont": "Inter, Arial, sans-serif",
+    "titleFont": "Inter, Arial, sans-serif",
+    "labelFontSize": 11,
+    "titleFontSize": 12,
+    "labelColor": "#5b6778",
+    "titleColor": "#132033",
+    "orient": "bottom"
+  },
+  "title": {
+    "font": "Inter, Arial, sans-serif",
+    "fontSize": 14,
+    "fontWeight": 800,
+    "anchor": "start",
+    "color": "#132033"
+  },
+  "bar": {
+    "cornerRadiusEnd": 5
+  },
+  "point": {
+    "filled": true
   }
+}
 }
